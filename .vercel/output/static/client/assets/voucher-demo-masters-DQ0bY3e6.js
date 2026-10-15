@@ -1,0 +1,1 @@
+var e=[`Main Godown`,`Showroom`,`Godown-2`];function t(e){return`₹${Number(e).toLocaleString(`en-IN`,{minimumFractionDigits:2,maximumFractionDigits:2})}`}export{e as n,t};

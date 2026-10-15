@@ -36,7 +36,7 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
         content: 'width=device-width, initial-scale=1',
       },
       {
-        title: 'HisaabKro',
+        title: env.VITE_APP_TITLE ?? 'My Bill Book',
       },
       {
         name: 'theme-color',

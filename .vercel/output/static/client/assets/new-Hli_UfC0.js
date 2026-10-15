@@ -1,0 +1,1 @@
+import{t as e}from"./jsx-runtime-n5LQ9ujS.js";import{t}from"./compiler-runtime-ClOnpRnu.js";import{a as n}from"./index-CGJ1CuHp.js";import{t as r}from"./voucher-entry-page-BOZ5fXw4.js";var i=t(),a=e();function o(){let e=(0,i.c)(2),{fromDocument:t}=n.useSearch(),o;return e[0]===t?o=e[1]:(o=(0,a.jsx)(r,{mode:`sales`,sourceDocumentId:t}),e[0]=t,e[1]=o),o}export{o as component};

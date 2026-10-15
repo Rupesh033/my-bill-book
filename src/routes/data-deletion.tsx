@@ -27,12 +27,12 @@ function DataDeletionRoute() {
     <main className="min-h-screen bg-background px-4 py-10 text-foreground">
       <div className="mx-auto flex max-w-3xl flex-col gap-6">
         <div className="flex flex-col gap-2">
-          <p className="text-sm font-medium text-muted-foreground">HisaabKro</p>
+          <p className="text-sm font-medium text-muted-foreground">My Bill Book</p>
           <h1 className="text-3xl font-semibold tracking-tight">
             Data Deletion
           </h1>
           <p className="text-sm text-muted-foreground">
-            Request deletion of your HisaabKro account and associated business
+            Request deletion of your My Bill Book account and associated business
             data.
           </p>
         </div>
@@ -54,7 +54,7 @@ function DataDeletionRoute() {
               workspace.
             </p>
             <p>
-              You can also open this page from the HisaabKro mobile app under
+              You can also open this page from the My Bill Book mobile app under
               Settings.
             </p>
           </CardContent>

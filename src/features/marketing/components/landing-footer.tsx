@@ -29,14 +29,16 @@ export function LandingFooter() {
           <Link className="hover:text-foreground" to="/data-deletion">
             Data deletion
           </Link>
-          <a
-            className="hover:text-foreground"
-            href={SITE.githubUrl}
-            rel="noreferrer"
-            target="_blank"
-          >
-            GitHub
-          </a>
+          {SITE.githubUrl ? (
+            <a
+              className="hover:text-foreground"
+              href={SITE.githubUrl}
+              rel="noreferrer"
+              target="_blank"
+            >
+              GitHub
+            </a>
+          ) : null}
         </nav>
       </div>
     </footer>

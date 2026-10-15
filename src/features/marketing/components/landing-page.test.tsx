@@ -82,11 +82,13 @@ describe('LandingPage', () => {
     expect(startLinks.length).toBeGreaterThan(0)
     expect(startLinks[0]?.getAttribute('href')).toBe('/signup')
 
-    const githubLinks = screen.getAllByRole('link', { name: /github/i })
-    expect(
-      githubLinks.some(
-        (link) => link.getAttribute('href') === SITE.githubUrl,
-      ),
-    ).toBe(true)
+    if (SITE.githubUrl) {
+      const githubLinks = screen.getAllByRole('link', { name: /github/i })
+      expect(
+        githubLinks.some(
+          (link) => link.getAttribute('href') === SITE.githubUrl,
+        ),
+      ).toBe(true)
+    }
   })
 })

@@ -49,16 +49,18 @@ export function LandingHeader() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <Button asChild size="sm" variant="ghost">
-            <a
-              href={SITE.githubUrl}
-              rel="noreferrer"
-              target="_blank"
-            >
-              <GitBranchIcon data-icon="inline-start" />
-              GitHub
-            </a>
-          </Button>
+          {SITE.githubUrl ? (
+            <Button asChild size="sm" variant="ghost">
+              <a
+                href={SITE.githubUrl}
+                rel="noreferrer"
+                target="_blank"
+              >
+                <GitBranchIcon data-icon="inline-start" />
+                GitHub
+              </a>
+            </Button>
+          ) : null}
           {hasSession ? (
             <Button asChild size="sm">
               <Link to="/app/dashboard">Open dashboard</Link>

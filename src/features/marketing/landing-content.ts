@@ -1,13 +1,22 @@
-export const SITE = {
-  name: 'HisaabKro',
-  url: 'https://hisaabkro.in',
-  githubUrl: 'https://github.com/shabanraza/gst-accounting-software',
-  title: 'HisaabKro — Free GST billing & accounting for Indian business',
+export type SiteConfig = {
+  name: string
+  url: string
+  githubUrl?: string
+  title: string
+  description: string
+  ogImage: string
+}
+
+export const SITE: SiteConfig = {
+  name: 'My Bill Book',
+  url: 'http://localhost:3001',
+  githubUrl: undefined,
+  title: 'My Bill Book — Free GST billing & accounting for Indian business',
   description:
     'Free GST billing, sales, purchases, inventory, party ledgers, and GST returns in one keyboard-first workspace. Proper double-entry books. No license fee.',
   /** Absolute URL for Open Graph / Twitter cards (1200×630). */
-  ogImage: 'https://hisaabkro.in/og-card.png',
-} as const
+  ogImage: '/og-card.png',
+}
 
 /** Shared Open Graph + Twitter image tags for marketing pages. */
 export function buildSocialImageMeta(imageUrl: string = SITE.ogImage) {
@@ -32,9 +41,9 @@ export const HERO = {
   subhead:
     'Sales, purchases, inventory, party ledgers, and GST returns in one workspace — with proper double-entry books underneath. Keyboard-first, so a full invoice takes seconds at the counter.',
   primaryCta: { label: 'Start free', to: '/signup' as const },
-  secondaryCta: { label: 'View on GitHub', href: SITE.githubUrl },
+  secondaryCta: { label: 'Sign in', href: undefined as string | undefined },
   reassurance: 'No license fee. No credit card. Self-host it if you prefer.',
-} as const
+}
 
 export const HOW_IT_WORKS = {
   id: 'how-it-works',

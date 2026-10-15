@@ -37,16 +37,24 @@ export function LandingHero() {
                 <ArrowRightIcon data-icon="inline-end" />
               </Link>
             </Button>
-            <Button asChild size="lg" variant="outline">
-              <a
-                href={HERO.secondaryCta.href}
-                rel="noreferrer"
-                target="_blank"
-              >
-                <GitBranchIcon data-icon="inline-start" />
-                {HERO.secondaryCta.label}
-              </a>
-            </Button>
+            {HERO.secondaryCta.href ? (
+              <Button asChild size="lg" variant="outline">
+                <a
+                  href={HERO.secondaryCta.href}
+                  rel="noreferrer"
+                  target="_blank"
+                >
+                  <GitBranchIcon data-icon="inline-start" />
+                  {HERO.secondaryCta.label}
+                </a>
+              </Button>
+            ) : (
+              <Button asChild size="lg" variant="outline">
+                <Link to="/login">
+                  Sign in
+                </Link>
+              </Button>
+            )}
           </div>
           <p className="text-sm text-muted-foreground">{HERO.reassurance}</p>
         </div>
