@@ -1,1 +1,0 @@
-var e=`gstr2b-purchase-prefill`;function t(t){typeof window>`u`||sessionStorage.setItem(e,JSON.stringify(t))}function n(){if(typeof window>`u`)return null;let t=sessionStorage.getItem(e);if(!t)return null;sessionStorage.removeItem(e);try{return JSON.parse(t)}catch{return null}}export{t as n,n as t};

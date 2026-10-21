@@ -79,8 +79,8 @@ describe('AlternativePage', () => {
       await screen.findByRole('heading', { level: 1, name: alternative.headline }),
     ).toBeTruthy()
 
-    const startLinks = screen.getAllByRole('link', { name: /start free/i })
-    expect(startLinks[0]?.getAttribute('href')).toBe('/signup')
+    const startLinks = screen.getAllByRole('link', { name: /open billing app/i })
+    expect(startLinks[0]?.getAttribute('href')).toBe('/app/dashboard')
 
     for (const item of alternative.faq) {
       expect(screen.getByText(item.question)).toBeTruthy()

@@ -30,9 +30,15 @@ interface Alternative {
  */
 export function comparisonFact(rowLabel: string, competitorName: string): string {
   const row = COMPARISON.rows.find((candidate) => candidate.label === rowLabel)
-  const columnIndex = COMPARISON.columns.indexOf(
-    competitorName as (typeof COMPARISON.columns)[number],
-  )
+  let columnIndex = (COMPARISON.columns as readonly string[]).indexOf(competitorName)
+  if (
+    columnIndex < 1 &&
+    (competitorName === 'HisaabKro' ||
+      competitorName === SITE.name ||
+      competitorName === 'My Bill Book')
+  ) {
+    columnIndex = 1
+  }
   if (!row || columnIndex < 1) {
     throw new Error(`Unknown comparison row/column: ${rowLabel}/${competitorName}`)
   }

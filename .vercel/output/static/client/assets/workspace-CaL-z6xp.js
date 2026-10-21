@@ -1,1 +1,0 @@
-var e=`accounting.activeCompanyId`;export{e as t};

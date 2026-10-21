@@ -78,9 +78,9 @@ describe('LandingPage', () => {
       await screen.findByRole('heading', { level: 1, name: HERO.headline }),
     ).toBeTruthy()
 
-    const startLinks = screen.getAllByRole('link', { name: /start free/i })
+    const startLinks = screen.getAllByRole('link', { name: /open billing app/i })
     expect(startLinks.length).toBeGreaterThan(0)
-    expect(startLinks[0]?.getAttribute('href')).toBe('/signup')
+    expect(startLinks[0]?.getAttribute('href')).toBe('/app/dashboard')
 
     if (SITE.githubUrl) {
       const githubLinks = screen.getAllByRole('link', { name: /github/i })

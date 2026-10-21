@@ -1,1 +1,0 @@
-import{x as e}from"./index-CGJ1CuHp.js";var t=e;export{t as component};

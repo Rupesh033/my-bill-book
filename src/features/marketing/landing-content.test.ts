@@ -38,8 +38,8 @@ describe('landing content', () => {
     expect(SITE.ogImage).toMatch(/og-card\.png$/)
   })
 
-  test('primary CTA targets signup', () => {
-    expect(HERO.primaryCta.to).toBe('/signup')
+  test('primary CTA targets direct app dashboard', () => {
+    expect(HERO.primaryCta.to).toBe('/app/dashboard')
     expect(HERO.secondaryCta.label).toBeDefined()
   })
 

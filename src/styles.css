@@ -7,146 +7,153 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Rich Ledger / Editorial hybrid: neutral near-black chrome on a warm paper
-     canvas (hue 95) plus the five-color semantic system (money-in emerald,
-     money-out rose, gst violet, inventory amber, banking/info sky). With no
-     chromatic primary competing, the semantic tokens are the only color on
-     screen. Chrome values are explicit — there is no brand hue variable, so a
-     token can never silently resolve against the wrong palette. See DESIGN.md. */
-  /* The canvas is a hair off-white while --card stays pure white, so a card
-     reads as a raised surface without needing a hairline border around it. */
-  --workspace: oklch(0.978 0.006 95);
-  --background: oklch(0.978 0.006 95);
-  --foreground: oklch(0.22 0.008 95);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.22 0.008 95);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.22 0.008 95);
-  --primary: oklch(0.24 0.012 95);
-  --primary-foreground: oklch(0.98 0.004 95);
-  --secondary: oklch(0.955 0.006 95);
-  --secondary-foreground: oklch(0.3 0.01 95);
-  --muted: oklch(0.945 0.006 95);
-  --muted-foreground: oklch(0.52 0.01 95);
-  --accent: oklch(0.94 0.008 95);
-  --accent-foreground: oklch(0.28 0.01 95);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.985 0 0);
-  --success: oklch(0.596 0.145 163.225);
-  --success-foreground: oklch(0.979 0.021 166.113);
-  --warning: oklch(0.666 0.179 58.318);
-  --warning-foreground: oklch(0.987 0.022 95.277);
-  --info: oklch(0.588 0.158 241.966);
-  --info-foreground: oklch(0.977 0.013 236.62);
-  --gst: oklch(0.541 0.281 293.009);
-  --gst-foreground: oklch(0.977 0.014 308.299);
-  --money-in: oklch(0.596 0.145 163.225);
-  /* Darkened from L=0.586: the lighter rose cleared 4.5:1 on white but only
-     reached 3.98:1 as `text-money-out` on a `bg-money-out/15` badge. */
-  --money-out: oklch(0.54 0.24 17.585);
-  --inventory: oklch(0.666 0.179 58.318);
-  --banking: oklch(0.588 0.158 241.966);
-  --banking-foreground: oklch(0.977 0.013 236.62);
-  --border: oklch(0.9 0.006 95);
-  --input: oklch(0.9 0.006 95);
-  --ring: oklch(0.45 0.012 95);
-  /* Chart series map 1:1 onto the semantic palette so a trend line always
-     carries the same meaning as its badge/icon elsewhere in the product. */
+  /* Neumorphic (Soft UI) Design System:
+     Tactile canvas with extruded dual-shadow surfaces, sunken input wells,
+     tactile push buttons, and crisp high-contrast slate typography. */
+  --workspace: oklch(0.935 0.012 250);
+  --background: oklch(0.935 0.012 250);
+  --foreground: oklch(0.22 0.025 260);
+  --card: oklch(0.935 0.012 250);
+  --card-foreground: oklch(0.22 0.025 260);
+  --popover: oklch(0.945 0.012 250);
+  --popover-foreground: oklch(0.22 0.025 260);
+  --primary: oklch(0.55 0.22 260);
+  --primary-foreground: #ffffff;
+  --secondary: oklch(0.915 0.012 250);
+  --secondary-foreground: oklch(0.22 0.025 260);
+  --muted: oklch(0.905 0.014 250);
+  --muted-foreground: oklch(0.50 0.03 260);
+  --accent: oklch(0.895 0.016 250);
+  --accent-foreground: oklch(0.22 0.025 260);
+  --destructive: oklch(0.58 0.22 25);
+  --destructive-foreground: #ffffff;
+  --success: oklch(0.60 0.18 155);
+  --success-foreground: #ffffff;
+  --warning: oklch(0.70 0.17 75);
+  --warning-foreground: oklch(0.22 0.025 260);
+  --info: oklch(0.60 0.16 230);
+  --info-foreground: #ffffff;
+  --gst: oklch(0.52 0.22 275);
+  --gst-foreground: #ffffff;
+  --money-in: oklch(0.60 0.18 155);
+  --money-out: oklch(0.58 0.22 25);
+  --inventory: oklch(0.64 0.18 60);
+  --banking: oklch(0.55 0.22 260);
+  --banking-foreground: #ffffff;
+  --border: oklch(0.82 0.015 250 / 60%);
+  --input: oklch(0.915 0.012 250);
+  --ring: oklch(0.55 0.22 260);
   --chart-1: var(--money-in);
   --chart-2: var(--money-out);
   --chart-3: var(--gst);
   --chart-4: var(--inventory);
   --chart-5: var(--banking);
-  --radius: 0.5rem;
-  --radius-hero: 1.125rem;
+  --radius: 0.75rem;
+  --radius-hero: 1.25rem;
   --ease-precise: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
   --duration-fast: 120ms;
   --duration-base: 180ms;
   --duration-spring: 220ms;
-  /* Elevation scale — card containers are separated from the canvas by light,
-     not by a hairline. The scale is defined once here; themes only re-tint the
-     three inputs below. `--elevation-edge` is the dark-mode answer to shadows
-     being invisible on dark surfaces and stays transparent in light mode. */
   --elevation-edge: transparent;
-  --elevation-key: oklch(0.22 0.012 95 / 10%);
-  --elevation-ambient: oklch(0.22 0.012 95 / 9%);
+  --elevation-key: rgba(163, 177, 198, 0.6);
+  --elevation-ambient: rgba(255, 255, 255, 0.9);
   --elevation-1:
-    0 0 0 1px var(--elevation-edge), 0 1px 2px -1px var(--elevation-key),
-    0 4px 12px -6px var(--elevation-ambient);
+    6px 6px 14px rgba(163, 177, 198, 0.55),
+    -6px -6px 14px rgba(255, 255, 255, 0.85);
   --elevation-2:
-    0 0 0 1px var(--elevation-edge), 0 2px 6px -2px var(--elevation-key),
-    0 16px 32px -14px var(--elevation-ambient);
-  --shell-canvas: oklch(0.953 0.014 95);
-  --sidebar: oklch(0.953 0.014 95);
-  --sidebar-foreground: oklch(0.4 0.01 95);
-  --sidebar-primary: oklch(0.24 0.012 95);
-  --sidebar-primary-foreground: oklch(0.98 0.004 95);
-  --sidebar-accent: oklch(0.915 0.01 95);
-  --sidebar-accent-foreground: oklch(0.24 0.012 95);
-  --sidebar-border: oklch(0.888 0.008 95);
-  --sidebar-ring: oklch(0.45 0.012 95);
-  --sidebar-active: oklch(0.898 0.012 95);
-  --sidebar-active-foreground: oklch(0.2 0.012 95);
+    10px 10px 24px rgba(163, 177, 198, 0.65),
+    -10px -10px 24px rgba(255, 255, 255, 0.95);
+  --neu-sunken:
+    inset 2.5px 2.5px 5px rgba(163, 177, 198, 0.45),
+    inset -2.5px -2.5px 5px rgba(255, 255, 255, 0.8);
+  --neu-button:
+    4px 4px 10px rgba(163, 177, 198, 0.5),
+    -4px -4px 10px rgba(255, 255, 255, 0.85);
+  --neu-button-pressed:
+    inset 2px 2px 5px rgba(163, 177, 198, 0.5),
+    inset -2px -2px 5px rgba(255, 255, 255, 0.85);
+  --shell-canvas: oklch(0.90 0.012 250);
+  --sidebar: oklch(0.915 0.012 250);
+  --sidebar-foreground: oklch(0.28 0.025 260);
+  --sidebar-primary: oklch(0.55 0.22 260);
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: oklch(0.88 0.015 250);
+  --sidebar-accent-foreground: oklch(0.20 0.025 260);
+  --sidebar-border: oklch(0.82 0.015 250 / 60%);
+  --sidebar-ring: oklch(0.55 0.22 260);
+  --sidebar-active: oklch(0.55 0.22 260 / 12%);
+  --sidebar-active-foreground: oklch(0.48 0.22 260);
 }
 
 .dark {
-  /* --card sits above --background here, which is what keeps borderless cards
-     readable in dark mode where a drop shadow does almost nothing. */
-  --workspace: oklch(0.2 0.004 95);
-  --background: oklch(0.2 0.004 95);
-  --foreground: oklch(0.95 0.004 95);
-  --card: oklch(0.235 0.005 95);
-  --card-foreground: oklch(0.95 0.004 95);
-  --popover: oklch(0.235 0.005 95);
-  --popover-foreground: oklch(0.95 0.004 95);
-  --primary: oklch(0.93 0.005 95);
-  --primary-foreground: oklch(0.2 0.006 95);
-  --secondary: oklch(0.28 0.005 95);
-  --secondary-foreground: oklch(0.95 0.004 95);
-  --muted: oklch(0.28 0.005 95);
-  --muted-foreground: oklch(0.72 0.006 95);
-  --accent: oklch(0.3 0.006 95);
-  --accent-foreground: oklch(0.95 0.004 95);
-  --destructive: oklch(0.704 0.191 22.216);
-  --destructive-foreground: oklch(0.985 0 0);
-  --success: oklch(0.696 0.17 162.48);
-  --success-foreground: oklch(0.393 0.095 152.535);
-  --warning: oklch(0.769 0.188 70.08);
-  --warning-foreground: oklch(0.414 0.112 45.904);
-  --info: oklch(0.685 0.169 237.323);
-  --info-foreground: oklch(0.392 0.09 240.876);
-  --gst: oklch(0.702 0.183 293.541);
-  --gst-foreground: oklch(0.432 0.232 292.759);
-  --money-in: oklch(0.696 0.17 162.48);
-  --money-out: oklch(0.712 0.194 13.428);
-  --inventory: oklch(0.769 0.188 70.08);
-  --banking: oklch(0.685 0.169 237.323);
-  --banking-foreground: oklch(0.392 0.09 240.876);
-  --border: oklch(1 0 0 / 12%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.7 0.006 95);
-  /* Dark: a drop shadow alone barely registers, so the card keeps a faint
-     top-light edge and a deeper cast shadow. */
-  --elevation-edge: oklch(1 0 0 / 8%);
-  --elevation-key: oklch(0 0 0 / 40%);
-  --elevation-ambient: oklch(0 0 0 / 32%);
+  --workspace: oklch(0.18 0.012 250);
+  --background: oklch(0.18 0.012 250);
+  --foreground: oklch(0.96 0.01 250);
+  --card: oklch(0.18 0.012 250);
+  --card-foreground: oklch(0.96 0.01 250);
+  --popover: oklch(0.20 0.012 250);
+  --popover-foreground: oklch(0.96 0.01 250);
+  --primary: oklch(0.72 0.16 235);
+  --primary-foreground: oklch(0.15 0.012 250);
+  --secondary: oklch(0.23 0.012 250);
+  --secondary-foreground: oklch(0.94 0.01 250);
+  --muted: oklch(0.23 0.012 250);
+  --muted-foreground: oklch(0.68 0.025 250);
+  --accent: oklch(0.25 0.015 250);
+  --accent-foreground: oklch(0.96 0.01 250);
+  --destructive: oklch(0.62 0.22 25);
+  --destructive-foreground: #ffffff;
+  --success: oklch(0.70 0.16 150);
+  --success-foreground: oklch(0.15 0.012 250);
+  --warning: oklch(0.76 0.16 75);
+  --warning-foreground: oklch(0.15 0.012 250);
+  --info: oklch(0.72 0.14 230);
+  --info-foreground: oklch(0.15 0.012 250);
+  --gst: oklch(0.68 0.18 275);
+  --gst-foreground: #ffffff;
+  --money-in: oklch(0.70 0.16 150);
+  --money-out: oklch(0.65 0.22 25);
+  --inventory: oklch(0.74 0.16 65);
+  --banking: oklch(0.72 0.16 235);
+  --banking-foreground: oklch(0.15 0.012 250);
+  --border: oklch(0.30 0.015 250 / 60%);
+  --input: oklch(0.16 0.012 250);
+  --ring: oklch(0.72 0.16 235);
+  --elevation-edge: transparent;
+  --elevation-key: rgba(12, 14, 18, 0.8);
+  --elevation-ambient: rgba(36, 42, 52, 0.7);
+  --elevation-1:
+    5px 5px 14px rgba(12, 14, 18, 0.8),
+    -5px -5px 14px rgba(36, 42, 52, 0.7);
+  --elevation-2:
+    9px 9px 24px rgba(10, 12, 16, 0.85),
+    -9px -9px 24px rgba(40, 46, 58, 0.75);
+  --neu-sunken:
+    inset 2.5px 2.5px 6px rgba(10, 12, 16, 0.8),
+    inset -2.5px -2.5px 6px rgba(40, 46, 58, 0.7);
+  --neu-button:
+    4px 4px 10px rgba(12, 14, 18, 0.8),
+    -4px -4px 10px rgba(36, 42, 52, 0.7);
+  --neu-button-pressed:
+    inset 2.5px 2.5px 6px rgba(10, 12, 16, 0.8),
+    inset -2.5px -2.5px 6px rgba(40, 46, 58, 0.7);
   --chart-1: var(--money-in);
   --chart-2: var(--money-out);
   --chart-3: var(--gst);
   --chart-4: var(--inventory);
   --chart-5: var(--banking);
-  --shell-canvas: oklch(0.15 0.004 95);
-  --sidebar: oklch(0.15 0.004 95);
-  --sidebar-foreground: oklch(0.8 0.006 95);
-  --sidebar-primary: oklch(0.93 0.005 95);
-  --sidebar-primary-foreground: oklch(0.2 0.006 95);
-  --sidebar-accent: oklch(0.225 0.005 95);
-  --sidebar-accent-foreground: oklch(0.96 0.004 95);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.7 0.006 95);
-  --sidebar-active: oklch(0.275 0.006 95);
-  --sidebar-active-foreground: oklch(0.97 0.004 95);
+  --shell-canvas: oklch(0.14 0.012 250);
+  --sidebar: oklch(0.16 0.012 250);
+  --sidebar-foreground: oklch(0.85 0.02 250);
+  --sidebar-primary: oklch(0.72 0.16 235);
+  --sidebar-primary-foreground: oklch(0.15 0.012 250);
+  --sidebar-accent: oklch(0.22 0.015 250);
+  --sidebar-accent-foreground: oklch(0.96 0.01 250);
+  --sidebar-border: oklch(0.28 0.015 250 / 60%);
+  --sidebar-ring: oklch(0.72 0.16 235);
+  --sidebar-active: oklch(0.72 0.16 235 / 15%);
+  --sidebar-active-foreground: oklch(0.85 0.12 235);
 }
 
 @theme inline {
@@ -208,6 +215,11 @@
   --color-shell-canvas: var(--shell-canvas);
   --color-workspace: var(--workspace);
   --font-mono: 'JetBrains Mono Variable', monospace;
+  --shadow-elevation-1: var(--elevation-1);
+  --shadow-elevation-2: var(--elevation-2);
+  --shadow-neu-sunken: var(--neu-sunken);
+  --shadow-neu-button: var(--neu-button);
+  --shadow-neu-button-pressed: var(--neu-button-pressed);
 }
 
 html,
@@ -290,7 +302,9 @@ body {
 
 [data-slot='sidebar-inset'] {
   background: var(--workspace);
-  @apply md:ring-1 md:ring-border/60;
+  box-shadow: var(--elevation-1);
+  border: 1px solid color-mix(in oklch, var(--foreground) 6%, transparent);
+  border-radius: 1rem;
 }
 
 [data-slot='sidebar-group-label'] {
@@ -367,10 +381,72 @@ body {
    stay flat and tight — see [data-ui='data'] rules below. */
 [data-hero-surface] {
   border-radius: var(--radius-hero);
+  box-shadow: var(--elevation-2);
+}
+
+/* Neumorphic UI: Tactile cards, buttons, sunken inputs, and badges */
+[data-slot='card'] {
+  box-shadow: var(--elevation-1);
+  border: 1px solid color-mix(in oklch, var(--foreground) 7%, transparent);
+  border-radius: var(--radius);
+  background: var(--card);
+}
+
+[data-slot='card'][data-size='hero'] {
+  box-shadow: var(--elevation-2);
+  border-radius: var(--radius-hero);
+}
+
+[data-slot='button'] {
+  border-radius: var(--radius);
+  transition: all var(--duration-fast) var(--ease-precise);
+}
+
+[data-slot='button'][data-variant='default'] {
+  box-shadow: var(--neu-button);
+}
+
+[data-slot='button'][data-variant='secondary'],
+[data-slot='button'][data-variant='outline'] {
+  box-shadow: var(--neu-button);
+  border: 1px solid color-mix(in oklch, var(--foreground) 9%, transparent);
+}
+
+[data-slot='button']:not(:disabled):active {
+  box-shadow: var(--neu-button-pressed) !important;
+  transform: translateY(1px);
+}
+
+[data-slot='input']:not([data-voucher-grid-control]),
+[data-slot='textarea'],
+[data-slot='select-trigger']:not([data-voucher-grid-control]) {
+  background: var(--input);
+  box-shadow: var(--neu-sunken);
+  border: 1px solid color-mix(in oklch, var(--foreground) 8%, transparent);
+  border-radius: var(--radius-sm);
+}
+
+[data-slot='input']:not([data-voucher-grid-control]):focus-visible,
+[data-slot='textarea']:focus-visible,
+[data-slot='select-trigger']:not([data-voucher-grid-control]):focus-visible {
+  box-shadow: var(--neu-sunken), 0 0 0 2px var(--ring) !important;
+}
+
+[data-slot='badge'] {
+  box-shadow: 2px 2px 5px rgba(163, 177, 198, 0.4), -2px -2px 5px rgba(255, 255, 255, 0.7);
+}
+
+.dark [data-slot='badge'] {
+  box-shadow: 2px 2px 5px rgba(12, 14, 18, 0.7), -2px -2px 5px rgba(36, 42, 52, 0.6);
 }
 
 .icon-duotone {
   color: var(--icon-tone, var(--foreground));
+  box-shadow: inset 1.5px 1.5px 3px rgba(163, 177, 198, 0.4), inset -1.5px -1.5px 3px rgba(255, 255, 255, 0.8);
+}
+
+.dark .icon-duotone {
+  box-shadow: inset 1.5px 1.5px 3px rgba(12, 14, 18, 0.6), inset -1.5px -1.5px 3px rgba(36, 42, 52, 0.5);
 }
 
 .icon-duotone [data-icon-fill] {

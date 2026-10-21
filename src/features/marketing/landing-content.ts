@@ -30,19 +30,20 @@ export function buildSocialImageMeta(imageUrl: string = SITE.ogImage) {
 }
 
 export const NAV_LINKS = [
+  { href: '#steps', label: 'How to Use' },
+  { href: '#architecture', label: 'System Modules' },
   { href: '#features', label: 'Features' },
-  { href: '#how-it-works', label: 'How it works' },
   { href: '#compare', label: 'Compare' },
   { href: '#faq', label: 'FAQ' },
 ] as const
 
 export const HERO = {
-  headline: 'Free GST billing and accounting for Indian business.',
+  headline: 'Exclusive GST Billing & Enterprise Khata Software.',
   subhead:
-    'Sales, purchases, inventory, party ledgers, and GST returns in one workspace — with proper double-entry books underneath. Keyboard-first, so a full invoice takes seconds at the counter.',
-  primaryCta: { label: 'Start free', to: '/signup' as const },
-  secondaryCta: { label: 'Sign in', href: undefined as string | undefined },
-  reassurance: 'No license fee. No credit card. Self-host it if you prefer.',
+    'Instant billing, purchases, barcode scanning, party khata ledgers, and automated GST returns in one ultra-fast workspace. No sign-up required — start billing immediately.',
+  primaryCta: { label: 'Open Billing Software', to: '/app/dashboard' as const },
+  secondaryCta: { label: 'Explore Features', href: '#features' as string | undefined },
+  reassurance: 'Instant access. No sign-in or account creation required.',
 }
 
 export const HOW_IT_WORKS = {
@@ -92,32 +93,32 @@ export const FEATURES = {
   items: [
     {
       tone: 'money-in' as const,
-      title: 'Sales',
-      body: 'Tax invoices with place of supply, CGST/SGST/IGST split, and print-ready layout.',
+      title: 'Sales & Invoicing',
+      body: 'Tax invoices with place of supply, CGST/SGST/IGST split, POS billing, and print-ready layout.',
     },
     {
       tone: 'money-out' as const,
       title: 'Purchases & GRN',
-      body: 'Purchase bills, orders, and goods receipt — stock and payables stay in sync.',
+      body: 'Purchase bills, purchase orders, and goods receipt notes — stock and payables stay in sync.',
     },
     {
       tone: 'gst' as const,
-      title: 'GST & returns',
-      body: 'HSN summary, GSTR-style reports, and GSTR-2B reconciliation against your books.',
+      title: 'GST & Returns',
+      body: 'HSN summary, GSTR-1, GSTR-3B reports, and GSTR-2B reconciliation against your books.',
     },
     {
       tone: 'inventory' as const,
-      title: 'Inventory & godowns',
-      body: 'Items with HSN, godowns, and stock that only moves through stock movements.',
+      title: 'Inventory & Godowns',
+      body: 'Items with HSN, multi-godowns, barcode scanning, and stock that only moves through ledger movements.',
     },
     {
       tone: 'banking' as const,
-      title: 'Cash & bank',
-      body: 'Receipts, payments, cash book, and bank reconciliation in one place.',
+      title: 'Cash & Banking',
+      body: 'Receipts, payments, cash book, expense tracking, and bank reconciliation in one place.',
     },
     {
       tone: 'foreground' as const,
-      title: 'Parties & ageing',
+      title: 'Parties & Khata Ledgers',
       body: 'Customers and suppliers with GSTIN, ledger balances, and receivable/payable ageing.',
     },
   ],
@@ -125,10 +126,10 @@ export const FEATURES = {
 
 export const COMPARISON = {
   id: 'compare',
-  title: 'How HisaabKro compares',
+  title: 'How My Bill Book compares',
   subtitle:
     'Stable facts only — pricing model and how the software is delivered. Feature checklists go stale; these do not.',
-  columns: ['', 'HisaabKro', 'Tally', 'Busy', 'Vyapar', 'Zoho Books'] as const,
+  columns: ['', 'My Bill Book', 'Tally', 'Busy', 'Vyapar', 'Zoho Books'] as const,
   rows: [
     {
       label: 'Runs in a browser',
@@ -180,7 +181,7 @@ export const FAQ = {
   title: 'Questions worth asking',
   items: [
     {
-      question: 'Is HisaabKro really free?',
+      question: 'Is My Bill Book really free?',
       answer:
         'Yes. The software is MIT-licensed open source. There is no license fee and no credit card required to sign up for the hosted app. You can also self-host on Cloudflare Workers and Neon.',
     },
@@ -207,14 +208,14 @@ export const FAQ = {
     {
       question: 'Do I still need a CA?',
       answer:
-        'For filing strategy, notices, and advisory — yes, a CA remains valuable. HisaabKro keeps books, invoices, and GST reports organised so your CA works from clean data rather than chasing WhatsApp photos.',
+        'For filing strategy, notices, and advisory — yes, a CA remains valuable. My Bill Book keeps books, invoices, and GST reports organised so your CA works from clean data rather than chasing WhatsApp photos.',
     },
   ],
 } as const
 
 export const CLOSING_CTA = {
-  title: 'Start with a free workspace today',
-  body: 'Create an account, set up your company, and post your first invoice — no license fee.',
+  title: 'Instant Enterprise Billing at Your Fingertips',
+  body: 'Launch your company workspace directly and start creating tax invoices in seconds.',
   primaryCta: HERO.primaryCta,
   secondaryCta: HERO.secondaryCta,
 } as const
